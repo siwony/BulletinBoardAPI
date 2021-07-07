@@ -1,11 +1,11 @@
-package com.practice.siwony
+package com.bulletinBoard.siwony
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SiwonyApplication
+class BulletinBoardApplication
 
 fun main(args: Array<String>) {
-    runApplication<SiwonyApplication>(*args)
+    runApplication<BulletinBoardApplication>(*args)
 }

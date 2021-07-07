@@ -1,4 +1,4 @@
-package com.practice.siwony
+package com.bulletinBoard.siwony
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
