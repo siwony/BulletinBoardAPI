@@ -15,8 +15,8 @@ internal class UserEntityTest{
     @Test @DisplayName("Entity 테스트")
     fun UserEntit_테스트(){
         // Given
-        val EMAIL = "siwon103305@gmail.com"; val PWD = "siwony1234"; val NICKNAME = "siwony"
-        val userEntity : UserEntity = UserEntity(EMAIL, PWD, NICKNAME)
+        val email = "siwon103305@gmail.com"; val pwd = "siwony1234"; val nickname = "siwony"
+        val userEntity : UserEntity = UserEntity(email, pwd, nickname)
 
         // When
         val getAuthority: String = userEntity.authorities.toList()[0].authority
@@ -28,7 +28,7 @@ internal class UserEntityTest{
 
         // Then
         assertEquals(Role.ROLE_CLIENT.name, getAuthority)
-        assertEquals(PWD, password)
+        assertEquals(pwd, password)
         assertTrue(accountNonExpired)
         assertTrue(accountNonLocked)
         assertTrue(credentialsNonExpired)
