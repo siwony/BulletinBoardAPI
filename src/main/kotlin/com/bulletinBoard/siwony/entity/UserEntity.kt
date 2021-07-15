@@ -13,7 +13,7 @@ class UserEntity(email: String, password: String, nickname: String, role: Role =
     val userIdx : Long? = null
 
     @Column(name = "email", nullable = false)
-    var email : String = email
+    private var email : String = email
 
     @Column(name = "PASSWORD", nullable = false)
     private var password : String = password
@@ -24,7 +24,6 @@ class UserEntity(email: String, password: String, nickname: String, role: Role =
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_IDX") @Column(name = "ROLE") @CollectionTable(name = "ROLE")
-
     var roles : MutableList<Role> = mutableListOf(role)
 
     /**
@@ -32,13 +31,13 @@ class UserEntity(email: String, password: String, nickname: String, role: Role =
      * @return the authorities, sorted by natural key (never `null`)
      */
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-        var rolesConvertString : MutableList<String> = this.roles.map { role -> role.name } as MutableList<String>
+        val rolesConvertString : MutableList<String> = this.roles.map { role -> role.name } as MutableList<String>
         return rolesConvertString.map{ authority -> SimpleGrantedAuthority(authority) } as MutableCollection<out GrantedAuthority>;
     }
 
-    override fun getPassword(): String = this.password;
+    override fun getPassword(): String = this.password
 
-    override fun getUsername(): String = this.username
+    override fun getUsername(): String = this.email
 
     override fun isAccountNonExpired(): Boolean = true
 
