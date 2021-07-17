@@ -130,7 +130,7 @@ tasks.jacocoTestCoverageVerification {
 
 val testCoverage by tasks.registering {
     group = "BulletinBoard"
-    description = "코틀린 공부용 게시판 API 프로젝트"
+    description = "게시판 API 프로젝트"
 
     dependsOn(":test",
         ":jacocoTestReport",
